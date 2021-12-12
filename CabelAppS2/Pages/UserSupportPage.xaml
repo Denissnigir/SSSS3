@@ -1,0 +1,66 @@
+﻿<Page x:Class="CabelAppS2.Pages.UserSupportPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:CabelAppS2.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="UserSupportPage">
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition Width="0.4*"/>
+        </Grid.ColumnDefinitions>
+
+        <ListBox MouseDoubleClick="RequestList_MouseDoubleClick" x:Name="RequestList" SelectionChanged="RequestList_SelectionChanged">
+            <ListBox.Resources>
+                <Style TargetType="ListBoxItem">
+                    <Setter Property="HorizontalAlignment" Value="Stretch"/>
+                </Style>
+            </ListBox.Resources>
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <Grid Margin="10" Background="{Binding GetColor}">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+
+                        <TextBlock Text="{Binding StartDate}"/>
+                        <TextBlock Margin="10, 0, 0, 0" Text="{Binding ServiceStatus.Name}" Grid.Column="1"/>
+                    </Grid>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+
+        <Grid Grid.Column="1" x:Name="FullInfoGrid">
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+
+            <TextBlock Text="{Binding Number}" FontSize="14"/>
+            <TextBlock Text="{Binding StartDate}" Grid.Row="1" FontSize="14"/>
+            <TextBlock Text="{Binding GetClientNumber}" Grid.Row="2" FontSize="14"/>
+            <TextBlock Text="{Binding Contract.Bill}" Grid.Row="3" FontSize="14"/>
+            <TextBlock Text="{Binding Service.Name}" Grid.Row="4" FontSize="14"/>
+            <TextBlock Text="{Binding ServiceVariation.Name}" Grid.Row="5" FontSize="14"/>
+            <TextBlock Text="{Binding ServiceType1.Name}" Grid.Row="6" FontSize="14"/>
+            <TextBlock Text="{Binding ServiceStatus.Name}" Grid.Row="7" FontSize="14"/>
+            <TextBlock Text="{Binding Contract.Equipment.EquipmentType.Name}" Grid.Row="8" FontSize="14"/>
+            <TextBlock Text="{Binding ProblemDescription}" Grid.Row="9" FontSize="14"/>
+            <TextBlock Text="{Binding DateOfEnd}" Grid.Row="10" FontSize="14"/>
+        </Grid>
+    </Grid>
+</Page>

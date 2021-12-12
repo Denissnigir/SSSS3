@@ -1,0 +1,140 @@
+﻿<Page x:Class="CabelAppS2.Pages.ClientsPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:CabelAppS2.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="400" d:DesignWidth="650"
+      Title="ClientsPage">
+
+    <Grid>
+        <Grid VerticalAlignment="Top" Style="{StaticResource SecondaryGrid}" Width="650" HorizontalAlignment="Right" Height="100">
+
+            <Grid>
+
+                <Grid Grid.Row="1">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                        </Grid.RowDefinitions>
+                        <TextBlock Text="Фамилия" FontSize="14"/>
+
+                        <TextBox TextChanged="SecondNameTB_TextChanged" x:Name="SecondNameTB"  Height="20" Width="100" Grid.Row="1"/>
+
+                    </Grid>
+
+                    <Grid Grid.Column="1">
+                        <Grid.RowDefinitions>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                        </Grid.RowDefinitions>
+                        <TextBlock Text="Район" FontSize="14" />
+
+                        <TextBox x:Name="DistrictTB" TextChanged="SecondNameTB_TextChanged" Height="20" Width="100" Grid.Column="1" Grid.Row="1"/>
+
+                    </Grid>
+
+                    <Grid Grid.Column="2">
+                        <Grid.RowDefinitions>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                        </Grid.RowDefinitions>
+                        <TextBlock Text="Лицевой счёт" FontSize="14" />
+
+                        <TextBox TextChanged="SecondNameTB_TextChanged" x:Name="BillTB"  Height="20" Width="100" Grid.Row="1"/>
+
+                    </Grid>
+
+                    <Grid Grid.Column="3">
+                        <Grid.RowDefinitions>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                        </Grid.RowDefinitions>
+                        <TextBlock Text="Адрес" FontSize="14" />
+
+                        <ComboBox SelectionChanged="StreetCB_SelectionChanged" Grid.Row="1" x:Name="StreetCB" DisplayMemberPath="GetAddress" Height="25" Width="100" Grid.Column="3"/>
+
+                    </Grid>
+                </Grid>
+
+            </Grid>
+        </Grid>
+
+        <Grid VerticalAlignment="Bottom" Width="650" HorizontalAlignment="Right" Height="350">
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition Height="0.15*"/>
+            </Grid.RowDefinitions>
+
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition Width="0.4*"/>
+                </Grid.ColumnDefinitions>
+
+                <Grid Height="255" VerticalAlignment="Bottom">
+                    <DataGrid  x:Name="ClientDG" AutoGenerateColumns="False" IsReadOnly="True" MouseDoubleClick="ToClientFullInfo">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="ФИО" Binding="{Binding GetName}" />
+                            <DataGridTextColumn Header="Абонентский номер" Binding="{Binding Number}" />
+                            <DataGridTextColumn Header="Лицевой счёт" Binding="{Binding GetBill}" />
+                            <DataGridTextColumn Header="Услуги" Binding="{Binding GetServices}" />
+                        </DataGrid.Columns>
+                    </DataGrid>
+                </Grid>
+                   
+                
+              
+
+
+
+                <Grid Grid.Column="1" Height="250" VerticalAlignment="Bottom">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="0.2*"/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+
+                    <TextBlock Text="События"/>
+                    <ListBox Grid.Row="1" x:Name="EventLB" Grid.Column="1">
+                        <ListBox.Resources>
+                            <Style TargetType="ListBoxItem">
+                                <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
+                            </Style>
+                        </ListBox.Resources>
+                        <ListBox.ItemTemplate>
+                            <DataTemplate>
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition/>
+                                        <RowDefinition/>
+                                    </Grid.RowDefinitions>
+                                    <TextBlock Text="{Binding Name}"/>
+                                    <TextBlock Text="{Binding StartDate}" Grid.Row="1"/>
+                                </Grid>
+                            </DataTemplate>
+                        </ListBox.ItemTemplate>
+                    </ListBox>
+                </Grid>
+            </Grid>
+            <Grid Grid.Row="1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+
+                <CheckBox x:Name="ActiveCB" Checked="ActiveCB_Checked" Unchecked="ActiveCB_Checked" Content="Активные" VerticalAlignment="Center" HorizontalAlignment="Center" VerticalContentAlignment="Center" FontSize="20"/>
+                <CheckBox x:Name="UnactiveCB" Checked="ActiveCB_Checked" Unchecked="ActiveCB_Checked" Content="Неактивные" VerticalAlignment="Center" HorizontalAlignment="Center" VerticalContentAlignment="Center" FontSize="20" Grid.Column="1"/>
+            </Grid>
+        </Grid>
+    </Grid>
+</Page>

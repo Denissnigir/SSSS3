@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="de17a166d13c481488a84bc9934fe87b" Name="Diagram1">
+        <EntityTypeShape EntityType="CabelDBModel.ActiveType" Width="1.5" PointX="3" PointY="46.625" />
+        <EntityTypeShape EntityType="CabelDBModel.Address" Width="1.5" PointX="1.5" PointY="26.25" />
+        <EntityTypeShape EntityType="CabelDBModel.BuildType" Width="1.5" PointX="1.5" PointY="33.625" />
+        <EntityTypeShape EntityType="CabelDBModel.Client" Width="1.5" PointX="1.5" PointY="18" />
+        <EntityTypeShape EntityType="CabelDBModel.Contract" Width="1.5" PointX="3.75" PointY="12.75" />
+        <EntityTypeShape EntityType="CabelDBModel.ContractService" Width="1.5" PointX="6" PointY="4" />
+        <EntityTypeShape EntityType="CabelDBModel.ContractType" Width="1.5" PointX="1.5" PointY="9.625" />
+        <EntityTypeShape EntityType="CabelDBModel.District" Width="1.5" PointX="1.5" PointY="30.25" />
+        <EntityTypeShape EntityType="CabelDBModel.Employee" Width="1.5" PointX="3" PointY="41.875" />
+        <EntityTypeShape EntityType="CabelDBModel.EmployeeEvent" Width="1.5" PointX="5.25" PointY="39.375" />
+        <EntityTypeShape EntityType="CabelDBModel.EmployeeRequest" Width="1.5" PointX="5.25" PointY="0.75" />
+        <EntityTypeShape EntityType="CabelDBModel.Equipment" Width="1.5" PointX="1.5" PointY="11.875" />
+        <EntityTypeShape EntityType="CabelDBModel.EquipmentType" Width="1.5" PointX="1.5" PointY="15.25" />
+        <EntityTypeShape EntityType="CabelDBModel.Event" Width="1.5" PointX="3" PointY="38.5" />
+        <EntityTypeShape EntityType="CabelDBModel.Gender" Width="1.5" PointX="1.5" PointY="23.875" />
+        <EntityTypeShape EntityType="CabelDBModel.ProblemType" Width="1.5" PointX="0.75" PointY="1.25" />
+        <EntityTypeShape EntityType="CabelDBModel.Rent" Width="1.5" PointX="6" PointY="13.75" />
+        <EntityTypeShape EntityType="CabelDBModel.Request" Width="1.5" PointX="3" PointY="2.625" />
+        <EntityTypeShape EntityType="CabelDBModel.Role" Width="1.5" PointX="0.75" PointY="42.625" />
+        <EntityTypeShape EntityType="CabelDBModel.Service" Width="1.5" PointX="0.75" PointY="4" />
+        <EntityTypeShape EntityType="CabelDBModel.ServiceStatus" Width="1.5" PointX="0.75" PointY="6.625" />
+        <EntityTypeShape EntityType="CabelDBModel.ServiceType" Width="1.5" PointX="0.75" PointY="39.375" />
+        <EntityTypeShape EntityType="CabelDBModel.ServiceVariation" Width="1.5" PointX="0.75" PointY="37" />
+        <EntityTypeShape EntityType="CabelDBModel.sysdiagrams" Width="1.5" PointX="5.75" PointY="6.75" />
+        <EntityTypeShape EntityType="CabelDBModel.Timesheet" Width="1.5" PointX="5.25" PointY="42.25" />
+        <AssociationConnector Association="CabelDBModel.FK_Timesheet_ActiveType" />
+        <AssociationConnector Association="CabelDBModel.FK_Address_District" />
+        <AssociationConnector Association="CabelDBModel.FK_Client_Address" />
+        <AssociationConnector Association="CabelDBModel.FK_District_BuildType" />
+        <AssociationConnector Association="CabelDBModel.FK_Client_Gender" />
+        <AssociationConnector Association="CabelDBModel.FK_Contract_Client" />
+        <AssociationConnector Association="CabelDBModel.FK_Contract_ContractType" />
+        <AssociationConnector Association="CabelDBModel.FK_Contract_Equipment" />
+        <AssociationConnector Association="CabelDBModel.FK_ContractService_Contract" />
+        <AssociationConnector Association="CabelDBModel.FK_Rent_Contract" />
+        <AssociationConnector Association="CabelDBModel.FK_Request_Contract" />
+        <AssociationConnector Association="CabelDBModel.FK_ContractService_Service" />
+        <AssociationConnector Association="CabelDBModel.FK_Employee_Role" />
+        <AssociationConnector Association="CabelDBModel.FK_EmployeeEvent_Employee" />
+        <AssociationConnector Association="CabelDBModel.FK_EmployeeRequest_Employee" />
+        <AssociationConnector Association="CabelDBModel.FK_Timesheet_Employee" />
+        <AssociationConnector Association="CabelDBModel.FK_RoleEvent_Event" />
+        <AssociationConnector Association="CabelDBModel.FK_EmployeeRequest_Request" />
+        <AssociationConnector Association="CabelDBModel.FK_Equipment_EquipmentType" />
+        <AssociationConnector Association="CabelDBModel.FK_Request_ProblemType" />
+        <AssociationConnector Association="CabelDBModel.FK_Request_Service" />
+        <AssociationConnector Association="CabelDBModel.FK_Request_ServiceStatus" />
+        <AssociationConnector Association="CabelDBModel.FK_Request_ServiceType" />
+        <AssociationConnector Association="CabelDBModel.FK_Request_ServiceVariation" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

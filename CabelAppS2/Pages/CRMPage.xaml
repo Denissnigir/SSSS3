@@ -1,0 +1,100 @@
+﻿<Page x:Class="CabelAppS2.Pages.CRMPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:CabelAppS2.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="CRMPage">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="0.3*"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition Width="0.6*"/>
+            </Grid.ColumnDefinitions>
+
+            <ComboBox SelectionChanged="PhoneCB_SelectionChanged" x:Name="PhoneCB" DisplayMemberPath="PhoneNumber" IsEditable="True" Height="40" Width="240"/>
+            <ComboBox SelectionChanged="PhoneCB_SelectionChanged" x:Name="SecondNameCB" DisplayMemberPath="SecondName" IsEditable="True" Height="40" Width="240" Grid.Column="1"/>
+            <Button Height="40" Width="130" Content="Поиск" Grid.Column="2" Click="SearchClient"/>
+        </Grid>
+
+        <Grid Grid.Row="1">
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition Height="0.2*"/>
+            </Grid.RowDefinitions>
+
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="0.5*"/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+
+                <Grid x:Name="ClientGrid">
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    <TextBlock x:Name="RequestNumberTB" Text="{Binding GetRequestNumber}"/>
+                    <TextBlock Text="{Binding Getinfo}" Grid.Row="1"/>
+
+                </Grid>
+
+                <Grid x:Name="RequestGrid" Grid.Row="1" Visibility="Hidden">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                        </Grid.RowDefinitions>
+
+                        <ComboBox x:Name="ServiceCB" DisplayMemberPath="Name" Height="35" Width="300"/>
+                        <ComboBox x:Name="ServiceVariationCB" DisplayMemberPath="Name" Grid.Row="1" Height="35" Width="300"/>
+                        <ComboBox x:Name="ServiceTypeCB" DisplayMemberPath="Name" Grid.Row="2" Height="35" Width="300"/>
+                        <ComboBox x:Name="StatusCB" DisplayMemberPath="Name" IsEnabled="False" Grid.Row="3" Height="35" Width="300"/>
+                        
+                    </Grid>
+
+                    <Grid Grid.Column="1">
+                        <Grid.RowDefinitions>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                        </Grid.RowDefinitions>
+
+                        <TextBlock x:Name="EquipmentTypeCB" Text="IP" Height="35" Width="300"/>
+                        <ComboBox x:Name="ProblemTypeCB" DisplayMemberPath="Name" Grid.Row="1" Height="35" Width="300"/>
+                        <TextBox x:Name="DescriptionTB" Grid.Row="2" Height="35" Width="300"/>
+                        <TextBox x:Name="DateOfEndTB" IsEnabled="False" Grid.Row="3" Height="35" Width="300"/>
+
+                    </Grid>
+                </Grid>
+                
+            </Grid>
+
+            <Grid Grid.Row="1" Visibility="Hidden" x:Name="ButtonGrid">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <Button Width="300" Height="35" Content="Создать заявку" Click="CreateRequest"/>
+                <Button Grid.Column="1" Width="300" Height="35" Content="Протестировать оборудование" Click="CheckEquipment"/>
+            </Grid>
+        </Grid>
+    </Grid>
+</Page>

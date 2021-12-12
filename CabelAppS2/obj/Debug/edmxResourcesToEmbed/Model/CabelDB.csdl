@@ -1,0 +1,695 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="CabelDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="CabelDBEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="ActiveType" EntityType="CabelDBModel.ActiveType" />
+    <EntitySet Name="Address" EntityType="CabelDBModel.Address" />
+    <EntitySet Name="BuildType" EntityType="CabelDBModel.BuildType" />
+    <EntitySet Name="Client" EntityType="CabelDBModel.Client" />
+    <EntitySet Name="Contract" EntityType="CabelDBModel.Contract" />
+    <EntitySet Name="ContractService" EntityType="CabelDBModel.ContractService" />
+    <EntitySet Name="ContractType" EntityType="CabelDBModel.ContractType" />
+    <EntitySet Name="District" EntityType="CabelDBModel.District" />
+    <EntitySet Name="Employee" EntityType="CabelDBModel.Employee" />
+    <EntitySet Name="EmployeeEvent" EntityType="CabelDBModel.EmployeeEvent" />
+    <EntitySet Name="EmployeeRequest" EntityType="CabelDBModel.EmployeeRequest" />
+    <EntitySet Name="Equipment" EntityType="CabelDBModel.Equipment" />
+    <EntitySet Name="EquipmentType" EntityType="CabelDBModel.EquipmentType" />
+    <EntitySet Name="Event" EntityType="CabelDBModel.Event" />
+    <EntitySet Name="Gender" EntityType="CabelDBModel.Gender" />
+    <EntitySet Name="ProblemType" EntityType="CabelDBModel.ProblemType" />
+    <EntitySet Name="Rent" EntityType="CabelDBModel.Rent" />
+    <EntitySet Name="Request" EntityType="CabelDBModel.Request" />
+    <EntitySet Name="Role" EntityType="CabelDBModel.Role" />
+    <EntitySet Name="Service" EntityType="CabelDBModel.Service" />
+    <EntitySet Name="ServiceStatus" EntityType="CabelDBModel.ServiceStatus" />
+    <EntitySet Name="ServiceType" EntityType="CabelDBModel.ServiceType" />
+    <EntitySet Name="ServiceVariation" EntityType="CabelDBModel.ServiceVariation" />
+    <EntitySet Name="sysdiagrams" EntityType="CabelDBModel.sysdiagrams" />
+    <EntitySet Name="Timesheet" EntityType="CabelDBModel.Timesheet" />
+    <AssociationSet Name="FK_Timesheet_ActiveType" Association="CabelDBModel.FK_Timesheet_ActiveType">
+      <End Role="ActiveType" EntitySet="ActiveType" />
+      <End Role="Timesheet" EntitySet="Timesheet" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Address_District" Association="CabelDBModel.FK_Address_District">
+      <End Role="District" EntitySet="District" />
+      <End Role="Address" EntitySet="Address" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Client_Address" Association="CabelDBModel.FK_Client_Address">
+      <End Role="Address" EntitySet="Address" />
+      <End Role="Client" EntitySet="Client" />
+    </AssociationSet>
+    <AssociationSet Name="FK_District_BuildType" Association="CabelDBModel.FK_District_BuildType">
+      <End Role="BuildType" EntitySet="BuildType" />
+      <End Role="District" EntitySet="District" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Client_Gender" Association="CabelDBModel.FK_Client_Gender">
+      <End Role="Gender" EntitySet="Gender" />
+      <End Role="Client" EntitySet="Client" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Contract_Client" Association="CabelDBModel.FK_Contract_Client">
+      <End Role="Client" EntitySet="Client" />
+      <End Role="Contract" EntitySet="Contract" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Contract_ContractType" Association="CabelDBModel.FK_Contract_ContractType">
+      <End Role="ContractType" EntitySet="ContractType" />
+      <End Role="Contract" EntitySet="Contract" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Contract_Equipment" Association="CabelDBModel.FK_Contract_Equipment">
+      <End Role="Equipment" EntitySet="Equipment" />
+      <End Role="Contract" EntitySet="Contract" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ContractService_Contract" Association="CabelDBModel.FK_ContractService_Contract">
+      <End Role="Contract" EntitySet="Contract" />
+      <End Role="ContractService" EntitySet="ContractService" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Rent_Contract" Association="CabelDBModel.FK_Rent_Contract">
+      <End Role="Contract" EntitySet="Contract" />
+      <End Role="Rent" EntitySet="Rent" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Request_Contract" Association="CabelDBModel.FK_Request_Contract">
+      <End Role="Contract" EntitySet="Contract" />
+      <End Role="Request" EntitySet="Request" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ContractService_Service" Association="CabelDBModel.FK_ContractService_Service">
+      <End Role="Service" EntitySet="Service" />
+      <End Role="ContractService" EntitySet="ContractService" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Employee_Role" Association="CabelDBModel.FK_Employee_Role">
+      <End Role="Role" EntitySet="Role" />
+      <End Role="Employee" EntitySet="Employee" />
+    </AssociationSet>
+    <AssociationSet Name="FK_EmployeeEvent_Employee" Association="CabelDBModel.FK_EmployeeEvent_Employee">
+      <End Role="Employee" EntitySet="Employee" />
+      <End Role="EmployeeEvent" EntitySet="EmployeeEvent" />
+    </AssociationSet>
+    <AssociationSet Name="FK_EmployeeRequest_Employee" Association="CabelDBModel.FK_EmployeeRequest_Employee">
+      <End Role="Employee" EntitySet="Employee" />
+      <End Role="EmployeeRequest" EntitySet="EmployeeRequest" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Timesheet_Employee" Association="CabelDBModel.FK_Timesheet_Employee">
+      <End Role="Employee" EntitySet="Employee" />
+      <End Role="Timesheet" EntitySet="Timesheet" />
+    </AssociationSet>
+    <AssociationSet Name="FK_RoleEvent_Event" Association="CabelDBModel.FK_RoleEvent_Event">
+      <End Role="Event" EntitySet="Event" />
+      <End Role="EmployeeEvent" EntitySet="EmployeeEvent" />
+    </AssociationSet>
+    <AssociationSet Name="FK_EmployeeRequest_Request" Association="CabelDBModel.FK_EmployeeRequest_Request">
+      <End Role="Request" EntitySet="Request" />
+      <End Role="EmployeeRequest" EntitySet="EmployeeRequest" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Equipment_EquipmentType" Association="CabelDBModel.FK_Equipment_EquipmentType">
+      <End Role="EquipmentType" EntitySet="EquipmentType" />
+      <End Role="Equipment" EntitySet="Equipment" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Request_ProblemType" Association="CabelDBModel.FK_Request_ProblemType">
+      <End Role="ProblemType" EntitySet="ProblemType" />
+      <End Role="Request" EntitySet="Request" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Request_Service" Association="CabelDBModel.FK_Request_Service">
+      <End Role="Service" EntitySet="Service" />
+      <End Role="Request" EntitySet="Request" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Request_ServiceStatus" Association="CabelDBModel.FK_Request_ServiceStatus">
+      <End Role="ServiceStatus" EntitySet="ServiceStatus" />
+      <End Role="Request" EntitySet="Request" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Request_ServiceType" Association="CabelDBModel.FK_Request_ServiceType">
+      <End Role="ServiceType" EntitySet="ServiceType" />
+      <End Role="Request" EntitySet="Request" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Request_ServiceVariation" Association="CabelDBModel.FK_Request_ServiceVariation">
+      <End Role="ServiceVariation" EntitySet="ServiceVariation" />
+      <End Role="Request" EntitySet="Request" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="ActiveType">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Timesheet" Relationship="CabelDBModel.FK_Timesheet_ActiveType" FromRole="ActiveType" ToRole="Timesheet" />
+  </EntityType>
+  <EntityType Name="Address">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Number" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="PostCode" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="DistrictId" Type="Int32" Nullable="false" />
+    <Property Name="Street" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="House" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="District" Relationship="CabelDBModel.FK_Address_District" FromRole="Address" ToRole="District" />
+    <NavigationProperty Name="Client" Relationship="CabelDBModel.FK_Client_Address" FromRole="Address" ToRole="Client" />
+  </EntityType>
+  <EntityType Name="BuildType">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="District" Relationship="CabelDBModel.FK_District_BuildType" FromRole="BuildType" ToRole="District" />
+  </EntityType>
+  <EntityType Name="Client">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Number" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="SecondName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="FirstName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="MiddleName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="GenderId" Type="Int32" Nullable="false" />
+    <Property Name="BirthDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="PhoneNumber" Type="String" Nullable="false" MaxLength="18" FixedLength="false" Unicode="true" />
+    <Property Name="Email" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="AddressInPassport" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="AddressId" Type="Int32" Nullable="false" />
+    <Property Name="PassportSerial" Type="String" Nullable="false" MaxLength="4" FixedLength="false" Unicode="true" />
+    <Property Name="PassportNumber" Type="String" Nullable="false" MaxLength="6" FixedLength="false" Unicode="true" />
+    <Property Name="PassportOrgCode" Type="String" Nullable="false" MaxLength="7" FixedLength="false" Unicode="true" />
+    <Property Name="PassportOrgName" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="PassportDate" Type="DateTime" Nullable="false" Precision="3" />
+    <NavigationProperty Name="Address" Relationship="CabelDBModel.FK_Client_Address" FromRole="Client" ToRole="Address" />
+    <NavigationProperty Name="Gender" Relationship="CabelDBModel.FK_Client_Gender" FromRole="Client" ToRole="Gender" />
+    <NavigationProperty Name="Contract" Relationship="CabelDBModel.FK_Contract_Client" FromRole="Client" ToRole="Contract" />
+  </EntityType>
+  <EntityType Name="Contract">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Number" Type="String" Nullable="false" MaxLength="40" FixedLength="false" Unicode="true" />
+    <Property Name="ClientId" Type="Int32" Nullable="false" />
+    <Property Name="StartDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="ContractTypeId" Type="Int32" Nullable="false" />
+    <Property Name="ReasonOfEnd" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Bill" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="DateOfEnd" Type="DateTime" Precision="3" />
+    <Property Name="EquipmentId" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Client" Relationship="CabelDBModel.FK_Contract_Client" FromRole="Contract" ToRole="Client" />
+    <NavigationProperty Name="ContractType" Relationship="CabelDBModel.FK_Contract_ContractType" FromRole="Contract" ToRole="ContractType" />
+    <NavigationProperty Name="Equipment" Relationship="CabelDBModel.FK_Contract_Equipment" FromRole="Contract" ToRole="Equipment" />
+    <NavigationProperty Name="ContractService" Relationship="CabelDBModel.FK_ContractService_Contract" FromRole="Contract" ToRole="ContractService" />
+    <NavigationProperty Name="Rent" Relationship="CabelDBModel.FK_Rent_Contract" FromRole="Contract" ToRole="Rent" />
+    <NavigationProperty Name="Request" Relationship="CabelDBModel.FK_Request_Contract" FromRole="Contract" ToRole="Request" />
+  </EntityType>
+  <EntityType Name="ContractService">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ContractId" Type="Int32" Nullable="false" />
+    <Property Name="ServiceId" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Contract" Relationship="CabelDBModel.FK_ContractService_Contract" FromRole="ContractService" ToRole="Contract" />
+    <NavigationProperty Name="Service" Relationship="CabelDBModel.FK_ContractService_Service" FromRole="ContractService" ToRole="Service" />
+  </EntityType>
+  <EntityType Name="ContractType">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="40" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Contract" Relationship="CabelDBModel.FK_Contract_ContractType" FromRole="ContractType" ToRole="Contract" />
+  </EntityType>
+  <EntityType Name="District">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Area" Type="Decimal" Nullable="false" Precision="18" Scale="2" />
+    <Property Name="AmountOfPeople" Type="Decimal" Nullable="false" Precision="18" Scale="0" />
+    <Property Name="AmountMetroStations" Type="Int32" Nullable="false" />
+    <Property Name="BuildTypeId" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Address" Relationship="CabelDBModel.FK_Address_District" FromRole="District" ToRole="Address" />
+    <NavigationProperty Name="BuildType" Relationship="CabelDBModel.FK_District_BuildType" FromRole="District" ToRole="BuildType" />
+  </EntityType>
+  <EntityType Name="Employee">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="SecondName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="FirstName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="MiddleName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="RoleId" Type="Int32" Nullable="false" />
+    <Property Name="PhotoPath" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="PhotoByte" Type="Binary" MaxLength="Max" FixedLength="false" />
+    <NavigationProperty Name="Role" Relationship="CabelDBModel.FK_Employee_Role" FromRole="Employee" ToRole="Role" />
+    <NavigationProperty Name="EmployeeEvent" Relationship="CabelDBModel.FK_EmployeeEvent_Employee" FromRole="Employee" ToRole="EmployeeEvent" />
+    <NavigationProperty Name="EmployeeRequest" Relationship="CabelDBModel.FK_EmployeeRequest_Employee" FromRole="Employee" ToRole="EmployeeRequest" />
+    <NavigationProperty Name="Timesheet" Relationship="CabelDBModel.FK_Timesheet_Employee" FromRole="Employee" ToRole="Timesheet" />
+  </EntityType>
+  <EntityType Name="EmployeeEvent">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="EventId" Type="Int32" Nullable="false" />
+    <Property Name="EmployeeId" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Employee" Relationship="CabelDBModel.FK_EmployeeEvent_Employee" FromRole="EmployeeEvent" ToRole="Employee" />
+    <NavigationProperty Name="Event" Relationship="CabelDBModel.FK_RoleEvent_Event" FromRole="EmployeeEvent" ToRole="Event" />
+  </EntityType>
+  <EntityType Name="EmployeeRequest">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="EmployeeId" Type="Int32" Nullable="false" />
+    <Property Name="RequestId" Type="Int32" Nullable="false" />
+    <Property Name="StartDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="EndDate" Type="DateTime" Nullable="false" Precision="3" />
+    <NavigationProperty Name="Employee" Relationship="CabelDBModel.FK_EmployeeRequest_Employee" FromRole="EmployeeRequest" ToRole="Employee" />
+    <NavigationProperty Name="Request" Relationship="CabelDBModel.FK_EmployeeRequest_Request" FromRole="EmployeeRequest" ToRole="Request" />
+  </EntityType>
+  <EntityType Name="Equipment">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="SerialNumber" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="EquipmentTypeId" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Contract" Relationship="CabelDBModel.FK_Contract_Equipment" FromRole="Equipment" ToRole="Contract" />
+    <NavigationProperty Name="EquipmentType" Relationship="CabelDBModel.FK_Equipment_EquipmentType" FromRole="Equipment" ToRole="EquipmentType" />
+  </EntityType>
+  <EntityType Name="EquipmentType">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Equipment" Relationship="CabelDBModel.FK_Equipment_EquipmentType" FromRole="EquipmentType" ToRole="Equipment" />
+  </EntityType>
+  <EntityType Name="Event">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="StartDate" Type="DateTime" Nullable="false" Precision="3" />
+    <NavigationProperty Name="EmployeeEvent" Relationship="CabelDBModel.FK_RoleEvent_Event" FromRole="Event" ToRole="EmployeeEvent" />
+  </EntityType>
+  <EntityType Name="Gender">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Client" Relationship="CabelDBModel.FK_Client_Gender" FromRole="Gender" ToRole="Client" />
+  </EntityType>
+  <EntityType Name="ProblemType">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Request" Relationship="CabelDBModel.FK_Request_ProblemType" FromRole="ProblemType" ToRole="Request" />
+  </EntityType>
+  <EntityType Name="Rent">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ContractId" Type="Int32" Nullable="false" />
+    <Property Name="ExpireDate" Type="DateTime" Nullable="false" Precision="3" />
+    <NavigationProperty Name="Contract" Relationship="CabelDBModel.FK_Rent_Contract" FromRole="Rent" ToRole="Contract" />
+  </EntityType>
+  <EntityType Name="Request">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Number" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="StartDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="ContractId" Type="Int32" Nullable="false" />
+    <Property Name="ServiceId" Type="Int32" Nullable="false" />
+    <Property Name="ServiceVariationId" Type="Int32" Nullable="false" />
+    <Property Name="ServiceTypeId" Type="Int32" Nullable="false" />
+    <Property Name="ServiceStatusId" Type="Int32" Nullable="false" />
+    <Property Name="ServiceType" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ProblemDescription" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="DateOfEnd" Type="DateTime" Precision="3" />
+    <Property Name="ProblemTypeId" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Contract" Relationship="CabelDBModel.FK_Request_Contract" FromRole="Request" ToRole="Contract" />
+    <NavigationProperty Name="EmployeeRequest" Relationship="CabelDBModel.FK_EmployeeRequest_Request" FromRole="Request" ToRole="EmployeeRequest" />
+    <NavigationProperty Name="ProblemType" Relationship="CabelDBModel.FK_Request_ProblemType" FromRole="Request" ToRole="ProblemType" />
+    <NavigationProperty Name="Service" Relationship="CabelDBModel.FK_Request_Service" FromRole="Request" ToRole="Service" />
+    <NavigationProperty Name="ServiceStatus" Relationship="CabelDBModel.FK_Request_ServiceStatus" FromRole="Request" ToRole="ServiceStatus" />
+    <NavigationProperty Name="ServiceType1" Relationship="CabelDBModel.FK_Request_ServiceType" FromRole="Request" ToRole="ServiceType" />
+    <NavigationProperty Name="ServiceVariation" Relationship="CabelDBModel.FK_Request_ServiceVariation" FromRole="Request" ToRole="ServiceVariation" />
+  </EntityType>
+  <EntityType Name="Role">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Employee" Relationship="CabelDBModel.FK_Employee_Role" FromRole="Role" ToRole="Employee" />
+  </EntityType>
+  <EntityType Name="Service">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="ContractService" Relationship="CabelDBModel.FK_ContractService_Service" FromRole="Service" ToRole="ContractService" />
+    <NavigationProperty Name="Request" Relationship="CabelDBModel.FK_Request_Service" FromRole="Service" ToRole="Request" />
+  </EntityType>
+  <EntityType Name="ServiceStatus">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Request" Relationship="CabelDBModel.FK_Request_ServiceStatus" FromRole="ServiceStatus" ToRole="Request" />
+  </EntityType>
+  <EntityType Name="ServiceType">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Request" Relationship="CabelDBModel.FK_Request_ServiceType" FromRole="ServiceType" ToRole="Request" />
+  </EntityType>
+  <EntityType Name="ServiceVariation">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Request" Relationship="CabelDBModel.FK_Request_ServiceVariation" FromRole="ServiceVariation" ToRole="Request" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="Timesheet">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="EmployeeId" Type="Int32" Nullable="false" />
+    <Property Name="StartDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="ActiveTypeId" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="ActiveType" Relationship="CabelDBModel.FK_Timesheet_ActiveType" FromRole="Timesheet" ToRole="ActiveType" />
+    <NavigationProperty Name="Employee" Relationship="CabelDBModel.FK_Timesheet_Employee" FromRole="Timesheet" ToRole="Employee" />
+  </EntityType>
+  <Association Name="FK_Timesheet_ActiveType">
+    <End Type="CabelDBModel.ActiveType" Role="ActiveType" Multiplicity="1" />
+    <End Type="CabelDBModel.Timesheet" Role="Timesheet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ActiveType">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Timesheet">
+        <PropertyRef Name="ActiveTypeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Address_District">
+    <End Type="CabelDBModel.District" Role="District" Multiplicity="1" />
+    <End Type="CabelDBModel.Address" Role="Address" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="District">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Address">
+        <PropertyRef Name="DistrictId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Client_Address">
+    <End Type="CabelDBModel.Address" Role="Address" Multiplicity="1" />
+    <End Type="CabelDBModel.Client" Role="Client" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Address">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Client">
+        <PropertyRef Name="AddressId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_District_BuildType">
+    <End Type="CabelDBModel.BuildType" Role="BuildType" Multiplicity="1" />
+    <End Type="CabelDBModel.District" Role="District" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="BuildType">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="District">
+        <PropertyRef Name="BuildTypeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Client_Gender">
+    <End Type="CabelDBModel.Gender" Role="Gender" Multiplicity="1" />
+    <End Type="CabelDBModel.Client" Role="Client" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Gender">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Client">
+        <PropertyRef Name="GenderId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Contract_Client">
+    <End Type="CabelDBModel.Client" Role="Client" Multiplicity="1" />
+    <End Type="CabelDBModel.Contract" Role="Contract" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Client">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Contract">
+        <PropertyRef Name="ClientId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Contract_ContractType">
+    <End Type="CabelDBModel.ContractType" Role="ContractType" Multiplicity="1" />
+    <End Type="CabelDBModel.Contract" Role="Contract" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ContractType">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Contract">
+        <PropertyRef Name="ContractTypeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Contract_Equipment">
+    <End Type="CabelDBModel.Equipment" Role="Equipment" Multiplicity="1" />
+    <End Type="CabelDBModel.Contract" Role="Contract" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Equipment">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Contract">
+        <PropertyRef Name="EquipmentId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ContractService_Contract">
+    <End Type="CabelDBModel.Contract" Role="Contract" Multiplicity="1" />
+    <End Type="CabelDBModel.ContractService" Role="ContractService" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Contract">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ContractService">
+        <PropertyRef Name="ContractId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Rent_Contract">
+    <End Type="CabelDBModel.Contract" Role="Contract" Multiplicity="1" />
+    <End Type="CabelDBModel.Rent" Role="Rent" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Contract">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Rent">
+        <PropertyRef Name="ContractId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Request_Contract">
+    <End Type="CabelDBModel.Contract" Role="Contract" Multiplicity="1" />
+    <End Type="CabelDBModel.Request" Role="Request" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Contract">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Request">
+        <PropertyRef Name="ContractId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ContractService_Service">
+    <End Type="CabelDBModel.Service" Role="Service" Multiplicity="1" />
+    <End Type="CabelDBModel.ContractService" Role="ContractService" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Service">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ContractService">
+        <PropertyRef Name="ServiceId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Employee_Role">
+    <End Type="CabelDBModel.Role" Role="Role" Multiplicity="1" />
+    <End Type="CabelDBModel.Employee" Role="Employee" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Role">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Employee">
+        <PropertyRef Name="RoleId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_EmployeeEvent_Employee">
+    <End Type="CabelDBModel.Employee" Role="Employee" Multiplicity="1" />
+    <End Type="CabelDBModel.EmployeeEvent" Role="EmployeeEvent" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Employee">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="EmployeeEvent">
+        <PropertyRef Name="EmployeeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_EmployeeRequest_Employee">
+    <End Type="CabelDBModel.Employee" Role="Employee" Multiplicity="1" />
+    <End Type="CabelDBModel.EmployeeRequest" Role="EmployeeRequest" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Employee">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="EmployeeRequest">
+        <PropertyRef Name="EmployeeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Timesheet_Employee">
+    <End Type="CabelDBModel.Employee" Role="Employee" Multiplicity="1" />
+    <End Type="CabelDBModel.Timesheet" Role="Timesheet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Employee">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Timesheet">
+        <PropertyRef Name="EmployeeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_RoleEvent_Event">
+    <End Type="CabelDBModel.Event" Role="Event" Multiplicity="1" />
+    <End Type="CabelDBModel.EmployeeEvent" Role="EmployeeEvent" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Event">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="EmployeeEvent">
+        <PropertyRef Name="EventId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_EmployeeRequest_Request">
+    <End Type="CabelDBModel.Request" Role="Request" Multiplicity="1" />
+    <End Type="CabelDBModel.EmployeeRequest" Role="EmployeeRequest" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Request">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="EmployeeRequest">
+        <PropertyRef Name="RequestId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Equipment_EquipmentType">
+    <End Type="CabelDBModel.EquipmentType" Role="EquipmentType" Multiplicity="1" />
+    <End Type="CabelDBModel.Equipment" Role="Equipment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="EquipmentType">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Equipment">
+        <PropertyRef Name="EquipmentTypeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Request_ProblemType">
+    <End Type="CabelDBModel.ProblemType" Role="ProblemType" Multiplicity="1" />
+    <End Type="CabelDBModel.Request" Role="Request" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ProblemType">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Request">
+        <PropertyRef Name="ProblemTypeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Request_Service">
+    <End Type="CabelDBModel.Service" Role="Service" Multiplicity="1" />
+    <End Type="CabelDBModel.Request" Role="Request" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Service">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Request">
+        <PropertyRef Name="ServiceId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Request_ServiceStatus">
+    <End Type="CabelDBModel.ServiceStatus" Role="ServiceStatus" Multiplicity="1" />
+    <End Type="CabelDBModel.Request" Role="Request" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ServiceStatus">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Request">
+        <PropertyRef Name="ServiceStatusId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Request_ServiceType">
+    <End Type="CabelDBModel.ServiceType" Role="ServiceType" Multiplicity="1" />
+    <End Type="CabelDBModel.Request" Role="Request" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ServiceType">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Request">
+        <PropertyRef Name="ServiceTypeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Request_ServiceVariation">
+    <End Type="CabelDBModel.ServiceVariation" Role="ServiceVariation" Multiplicity="1" />
+    <End Type="CabelDBModel.Request" Role="Request" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ServiceVariation">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Request">
+        <PropertyRef Name="ServiceVariationId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

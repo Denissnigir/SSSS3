@@ -1,0 +1,299 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{8DB8D0E8-5304-40A5-9675-1CDEB5A13D56}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>CabelAppS2</RootNamespace>
+    <AssemblyName>CabelAppS2</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.13.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xaml">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Classes\Context.cs" />
+    <Compile Include="Classes\PartClasses\AddressPartClass.cs" />
+    <Compile Include="Classes\PartClasses\ClientPartClass.cs" />
+    <Compile Include="Classes\PartClasses\EmployeePartClass.cs" />
+    <Compile Include="Classes\PartClasses\RequestPartClass.cs" />
+    <Compile Include="Model\ActiveType.cs">
+      <DependentUpon>CabelDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Address.cs">
+      <DependentUpon>CabelDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\BuildType.cs">
+      <DependentUpon>CabelDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\CabelDB.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CabelDB.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\CabelDB.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CabelDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\CabelDB.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CabelDB.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Client.cs">
+      <DependentUpon>CabelDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Contract.cs">
+      <DependentUpon>CabelDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\ContractService.cs">
+      <DependentUpon>CabelDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\ContractType.cs">
+      <DependentUpon>CabelDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\District.cs">
+      <DependentUpon>CabelDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Employee.cs">
+      <DependentUpon>CabelDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\EmployeeEvent.cs">
+      <DependentUpon>CabelDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\EmployeeRequest.cs">
+      <DependentUpon>CabelDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Equipment.cs">
+      <DependentUpon>CabelDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\EquipmentType.cs">
+      <DependentUpon>CabelDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Event.cs">
+      <DependentUpon>CabelDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Gender.cs">
+      <DependentUpon>CabelDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\ProblemType.cs">
+      <DependentUpon>CabelDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Rent.cs">
+      <DependentUpon>CabelDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Request.cs">
+      <DependentUpon>CabelDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Role.cs">
+      <DependentUpon>CabelDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Service.cs">
+      <DependentUpon>CabelDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\ServiceStatus.cs">
+      <DependentUpon>CabelDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\ServiceType.cs">
+      <DependentUpon>CabelDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\ServiceVariation.cs">
+      <DependentUpon>CabelDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\sysdiagrams.cs">
+      <DependentUpon>CabelDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Timesheet.cs">
+      <DependentUpon>CabelDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\ActivePage.xaml.cs">
+      <DependentUpon>ActivePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\BillingPage.xaml.cs">
+      <DependentUpon>BillingPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\ClientsPage.xaml.cs">
+      <DependentUpon>ClientsPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\CRMPage.xaml.cs">
+      <DependentUpon>CRMPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\ManageEquipmentPage.xaml.cs">
+      <DependentUpon>ManageEquipmentPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\OfflineSupport.xaml.cs">
+      <DependentUpon>OfflineSupport.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\UserSupportPage.xaml.cs">
+      <DependentUpon>UserSupportPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\ClientInfoWindow.xaml.cs">
+      <DependentUpon>ClientInfoWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\UserWindow.xaml.cs">
+      <DependentUpon>UserWindow.xaml</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EntityDeploy Include="Model\CabelDB.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>CabelDB.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="Model\CabelDB.edmx.diagram">
+      <DependentUpon>CabelDB.edmx</DependentUpon>
+    </None>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Page Include="Pages\ActivePage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\BillingPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\ClientsPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\CRMPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\ManageEquipmentPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\OfflineSupport.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\UserSupportPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\ClientInfoWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\UserWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Photo\Лого ТНС.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Photo\CRM.png" />
+    <Resource Include="Resources\Photo\Абоненты.png" />
+    <Resource Include="Resources\Photo\Активы.png" />
+    <Resource Include="Resources\Photo\Биллинг.jpg" />
+    <Resource Include="Resources\Photo\Поддержка пользователей.jpg" />
+    <Resource Include="Resources\Photo\Управление обрудованием.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Resources\Photo\ProfilePhoto\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Model\CabelDB.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>CabelDB.edmx</DependentUpon>
+      <LastGenOutput>CabelDB.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Model\CabelDB.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>CabelDB.edmx</DependentUpon>
+      <LastGenOutput>CabelDB.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
