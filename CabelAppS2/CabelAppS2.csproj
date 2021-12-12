@@ -224,6 +224,7 @@
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
+    <None Include="Презентация1.pdf" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
